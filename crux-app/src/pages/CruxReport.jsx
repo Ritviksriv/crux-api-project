@@ -17,14 +17,13 @@ import { v4 as uuidv4 } from "uuid";
 import { removeDuplicates } from "../utils/func";
 import { fetchAllCruxData } from "../utils/api";
 
-function CruxReport() {
+const CruxReport = () => {
   const [cruxData, setCruxData] = useState([]);
   const [selectedUrls, setSelectedUrls] = useState([]);
   const [errorData, setErrorData] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [inputValue, setInputValue] = useState("");
   const addedURLs = cruxData.reduce((acc, url) => [...acc, url.origin], []);
-  console.log(inputValue, "dwaodoo");
 
   const searchHandler = async () => {
     const duplicateUrls = selectedUrls.filter((url) => addedURLs.includes(url));
@@ -45,7 +44,6 @@ function CruxReport() {
           id: uuidv4(),
           ...response.value,
         }));
-      console.log(metricsResponses, "wdpoppp");
       const failedUrls = metricsResponses
         .filter((response) => response.status === "rejected")
         .map((error) => error);
@@ -149,6 +147,6 @@ function CruxReport() {
       </Box>
     </div>
   );
-}
+};
 
 export default CruxReport;
