@@ -43,11 +43,9 @@ export function TableFooterRow({ columns, data }) {
             {column.field === "origin"
               ? label
               : columnMetrics[index][metricKey] !== ""
-              ? metricKey === "sum"
-                ? `${columnMetrics[index][metricKey]} ${showUnit ? "ms" : ""}`
-                : `${columnMetrics[index][metricKey].toFixed(2)} ${
-                    showUnit ? "ms" : ""
-                  }`
+              ? `${columnMetrics[index][metricKey].toFixed(2)} ${
+                  showUnit ? "ms" : ""
+                }`
               : ""}
           </Box>
         );
