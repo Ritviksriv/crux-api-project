@@ -24,7 +24,7 @@ const CruXTable = ({ data }) => {
         </Typography>
       </Box>
 
-      <Box sx={{ height: 400, width: 1000 }}>
+      <Box sx={{ height: 400, width: "100%" }}>
         <DataGrid
           rows={data}
           columns={columns}
