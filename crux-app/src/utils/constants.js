@@ -1,7 +1,7 @@
 export const columns = [
   {
     field: "origin",
-    width: 180,
+    width: 187,
     renderCell: ({ value }) => (
       <a href={value} target="_blank">
         {value}
