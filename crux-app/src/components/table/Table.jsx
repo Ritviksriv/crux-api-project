@@ -41,6 +41,7 @@ const CruXTable = ({ data }) => {
             borderTopLeftRadius: 0,
             borderTopRightRadius: 0,
           }}
+          disableColumnSelector
           hideFooterPagination
           hideFooter
         />
