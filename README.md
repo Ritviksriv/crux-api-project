@@ -20,6 +20,7 @@ $ npm start or npm run build
 
 ## Links
 
-1. Design Document: https://laced-coyote-982.notion.site/CruX-App-Design-Document-17ab6ea58678806685b0d5e4bfb655b8
-2. Demo Video: https://www.loom.com/share/07dc07b7ef70473f86455d2dfc09c9f2
-3. Deployed Site: https://tangerine-zabaione-bc9eb8.netlify.app/
+
+1. Deployed Site: https://tangerine-zabaione-bc9eb8.netlify.app/
+2. Design Document: https://laced-coyote-982.notion.site/CruX-App-Design-Document-17ab6ea58678806685b0d5e4bfb655b8
+3. Demo Video: https://www.loom.com/share/07dc07b7ef70473f86455d2dfc09c9f2
