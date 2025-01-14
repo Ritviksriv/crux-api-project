@@ -27,7 +27,6 @@ export const TableFooterRow = ({ columns, data, columnVisibilityModel }) => {
       }}
     >
       {columns.map((column, index) => {
-        console.log(columnVisibilityModel, "hiiii");
         if (!columnVisibilityModel[column.field]) {
           return;
         }
@@ -38,7 +37,7 @@ export const TableFooterRow = ({ columns, data, columnVisibilityModel }) => {
             sx={{
               flex: `${column.flex || 1}`,
               padding: "8px",
-              textAlign: "center",
+              textAlign: column.field === "origin" ? "center" : "right",
               alignItems: "end",
               fontWeight: "bold",
             }}

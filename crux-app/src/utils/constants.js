@@ -2,6 +2,7 @@ export const columns = [
   {
     field: "origin",
     flex: 1,
+    minWidth: 180,
     renderCell: ({ value }) => (
       <a href={value} target="_blank">
         {value}
@@ -14,6 +15,7 @@ export const columns = [
     field: "cumulative_layout_shift",
     type: "number",
     flex: 1,
+    minWidth: 135,
     valueGetter: (value) => value.percentiles.p75,
     renderHeader: () => <b>CLS (p75)</b>,
   },
@@ -21,6 +23,7 @@ export const columns = [
     field: "first_contentful_paint",
     type: "number",
     flex: 1,
+    minWidth: 135,
     valueGetter: (value) => value.percentiles.p75,
     renderHeader: () => <b>FCP (p75)</b>,
     renderCell: ({ value }) => `${value} ms`,
@@ -29,6 +32,7 @@ export const columns = [
     field: "largest_contentful_paint",
     type: "number",
     flex: 1,
+    minWidth: 135,
     valueGetter: (value) => value.percentiles.p75,
     renderHeader: () => <b>LCP (p75)</b>,
     renderCell: ({ value }) => `${value} ms`,
@@ -37,6 +41,7 @@ export const columns = [
     field: "round_trip_time",
     type: "number",
     flex: 1,
+    minWidth: 135,
     valueGetter: (value) => value.percentiles.p75,
     renderHeader: () => <b>RTT (p75)</b>,
     renderCell: ({ value }) => `${value} ms`,
@@ -45,6 +50,7 @@ export const columns = [
     field: "interaction_to_next_paint",
     type: "number",
     flex: 1,
+    minWidth: 135,
     valueGetter: (value) => value.percentiles.p75,
     renderHeader: () => <b>INP (p75)</b>,
     renderCell: ({ value }) => `${value} ms`,
@@ -54,6 +60,7 @@ export const columns = [
     field: "experimental_time_to_first_byte",
     type: "number",
     flex: 1,
+    minWidth: 135,
     valueGetter: (value) => value.percentiles.p75,
     renderHeader: () => <b>TTFB (p75)</b>,
     renderCell: ({ value }) => `${value} ms`,
