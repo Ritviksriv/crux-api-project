@@ -23,10 +23,15 @@ const CruxReport = () => {
   const [errorData, setErrorData] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [inputValue, setInputValue] = useState("");
-  const addedURLs = cruxData.reduce((acc, url) => [...acc, url.origin], []);
+  const addedURLs = cruxData.reduce(
+    (acc, url) => [...acc, new URL(url.origin).href],
+    []
+  );
 
   const searchHandler = async () => {
-    const duplicateUrls = selectedUrls.filter((url) => addedURLs.includes(url));
+    const duplicateUrls = selectedUrls.filter((url) =>
+      addedURLs.includes(new URL(url).href)
+    );
     if (duplicateUrls.length > 0) {
       setErrorData(`${duplicateUrls.join(", ")} has/have already been added!`);
       return;
@@ -92,6 +97,7 @@ const CruxReport = () => {
         <Typography>URL(s):</Typography>
         <Autocomplete
           multiple
+          disableClearable
           freeSolo
           value={selectedUrls}
           options={[]}
