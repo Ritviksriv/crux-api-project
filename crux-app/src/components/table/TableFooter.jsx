@@ -2,7 +2,7 @@ import React from "react";
 import { CALCULATION_ROWS, UNIT_ROWS } from "../../utils/constants";
 import { Box } from "@mui/material";
 
-export function TableFooterRow({ columns, data }) {
+export const TableFooterRow = ({ columns, data, columnVisibilityModel }) => {
   const columnMetrics = columns.map((column) => {
     if (!CALCULATION_ROWS.includes(column.field)) {
       return { sum: "", average: "" };
@@ -22,12 +22,15 @@ export function TableFooterRow({ columns, data }) {
       sx={{
         display: "flex",
         width: "100%",
-
         border: "1px solid #e0e0e0",
         borderTop: metricKey === "average" ? "none" : "",
       }}
     >
       {columns.map((column, index) => {
+        console.log(columnVisibilityModel, "hiiii");
+        if (!columnVisibilityModel[column.field]) {
+          return;
+        }
         const showUnit = UNIT_ROWS.includes(column.field);
         return (
           <Box
@@ -35,7 +38,7 @@ export function TableFooterRow({ columns, data }) {
             sx={{
               flex: `${column.flex || 1}`,
               padding: "8px",
-              textAlign: column.field === "origin" ? "center" : "right",
+              textAlign: "center",
               alignItems: "end",
               fontWeight: "bold",
             }}
@@ -59,4 +62,4 @@ export function TableFooterRow({ columns, data }) {
       {renderRow("Average", "average")}
     </Box>
   );
-}
+};

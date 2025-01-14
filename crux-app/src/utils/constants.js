@@ -1,7 +1,7 @@
 export const columns = [
   {
     field: "origin",
-    width: 180,
+    flex: 1,
     renderCell: ({ value }) => (
       <a href={value} target="_blank">
         {value}
@@ -13,14 +13,14 @@ export const columns = [
   {
     field: "cumulative_layout_shift",
     type: "number",
-    width: 135,
+    flex: 1,
     valueGetter: (value) => value.percentiles.p75,
     renderHeader: () => <b>CLS (p75)</b>,
   },
   {
     field: "first_contentful_paint",
     type: "number",
-    width: 135,
+    flex: 1,
     valueGetter: (value) => value.percentiles.p75,
     renderHeader: () => <b>FCP (p75)</b>,
     renderCell: ({ value }) => `${value} ms`,
@@ -28,7 +28,7 @@ export const columns = [
   {
     field: "largest_contentful_paint",
     type: "number",
-    width: 135,
+    flex: 1,
     valueGetter: (value) => value.percentiles.p75,
     renderHeader: () => <b>LCP (p75)</b>,
     renderCell: ({ value }) => `${value} ms`,
@@ -36,7 +36,7 @@ export const columns = [
   {
     field: "round_trip_time",
     type: "number",
-    width: 135,
+    flex: 1,
     valueGetter: (value) => value.percentiles.p75,
     renderHeader: () => <b>RTT (p75)</b>,
     renderCell: ({ value }) => `${value} ms`,
@@ -44,7 +44,7 @@ export const columns = [
   {
     field: "interaction_to_next_paint",
     type: "number",
-    width: 135,
+    flex: 1,
     valueGetter: (value) => value.percentiles.p75,
     renderHeader: () => <b>INP (p75)</b>,
     renderCell: ({ value }) => `${value} ms`,
@@ -53,7 +53,7 @@ export const columns = [
   {
     field: "experimental_time_to_first_byte",
     type: "number",
-    width: 135,
+    flex: 1,
     valueGetter: (value) => value.percentiles.p75,
     renderHeader: () => <b>TTFB (p75)</b>,
     renderCell: ({ value }) => `${value} ms`,
@@ -76,3 +76,13 @@ export const UNIT_ROWS = [
   "round_trip_time",
   "first_contentful_paint",
 ];
+
+export const VISIBLE_COLUMNS = {
+  origin: true,
+  largest_contentful_paint: true,
+  interaction_to_next_paint: true,
+  cumulative_layout_shift: true,
+  experimental_time_to_first_byte: true,
+  round_trip_time: true,
+  first_contentful_paint: true,
+};

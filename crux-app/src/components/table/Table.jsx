@@ -4,8 +4,12 @@ import { DataGrid } from "@mui/x-data-grid";
 import { columns } from "../../utils/constants";
 import { CustomNoRowsOverlay } from "../icons/no-rows-overlay";
 import { TableFooterRow } from "./TableFooter";
+import { useState } from "react";
+import { VISIBLE_COLUMNS } from "../../utils/constants";
 
 const CruXTable = ({ data }) => {
+  const [columnVisibilityModel, setColumnVisibilityModel] =
+    useState(VISIBLE_COLUMNS);
   return (
     <>
       <Box sx={{ mt: 2 }}>
@@ -41,11 +45,20 @@ const CruXTable = ({ data }) => {
             borderTopLeftRadius: 0,
             borderTopRightRadius: 0,
           }}
-          disableColumnSelector
+          columnVisibilityModel={columnVisibilityModel}
+          onColumnVisibilityModelChange={(newModel) =>
+            setColumnVisibilityModel(newModel)
+          }
           hideFooterPagination
           hideFooter
         />
-        {data.length >= 2 && <TableFooterRow columns={columns} data={data} />}
+        {data.length >= 2 && (
+          <TableFooterRow
+            columns={columns}
+            data={data}
+            columnVisibilityModel={columnVisibilityModel}
+          />
+        )}
       </Box>
     </>
   );
